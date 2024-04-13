@@ -110,8 +110,6 @@ const ExpenseManager = () => {
 
   const updateExistsExpense = id => {
     const editExpense = expenseList.find(eachexpense => eachexpense.id === id)
-    console.log(id)
-    console.log(editExpense)
     setEditData(editExpense)
   }
 
@@ -162,9 +160,9 @@ const ExpenseManager = () => {
     return filterItem
   }
 
-  const accessToken = Cookies.get('jwt_token')
+  const accessToken = Cookies.get('jwtToken')
   if (accessToken === undefined) {
-    return <Redirect to='/login' />
+    return <Redirect to="/login" />
   }
 
   const filteredExpenseList = displayItems()
@@ -176,26 +174,26 @@ const ExpenseManager = () => {
           <SectionHeading>My Expense Manager</SectionHeading>
           <RowFilterContainer>
             <SearchInputField
-              type='search'
-              placeholder='Filter by Date of Expense'
+              type="search"
+              placeholder="Filter by Date of Expense"
               value={searchDate}
               onChange={e => setSearchDate(e.target.value)}
             />
             <NameInputField
-              type='text'
-              placeholder='Search Expense by Name'
+              type="text"
+              placeholder="Search Expense by Name"
               value={searchName}
               onChange={e => setSearchName(e.target.value)}
             />
             <Popup
               modal
               trigger={
-                <NewExpenseButton type='button' aria-label='New Expense Button'>
-                  <IoMdAdd color='#ffffff' size={18} />
+                <NewExpenseButton type="button" aria-label="New Expense Button">
+                  <IoMdAdd color="#ffffff" size={18} />
                   <NewExpenseText>New Expense</NewExpenseText>
                 </NewExpenseButton>
               }
-              className='popup-content'
+              className="popup-content"
             >
               {close => (
                 <CreateExpense close={close} addExpenseRow={addExpenseRow} />
@@ -211,7 +209,7 @@ const ExpenseManager = () => {
           expenseList={filteredExpenseList}
         />
         <PaginationContainer>
-          <PaginationControlButton type='button' onClick={previousPage}>
+          <PaginationControlButton type="button" onClick={previousPage}>
             <MdKeyboardArrowLeft />
           </PaginationControlButton>
 
@@ -225,7 +223,7 @@ const ExpenseManager = () => {
               </PaginationItem>
             ))}
           </PaginationList>
-          <PaginationControlButton type='button' onClick={nextPage}>
+          <PaginationControlButton type="button" onClick={nextPage}>
             <MdOutlineKeyboardArrowRight />
           </PaginationControlButton>
         </PaginationContainer>

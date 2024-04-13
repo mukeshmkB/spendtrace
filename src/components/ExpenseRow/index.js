@@ -60,7 +60,7 @@ const ExpenseRow = props => {
 
   const handleMethod = () => {
     updateExistsExpense(id)
-    console.log(id)
+    
     setIsOpen(true)
   }
   const handleCloseModal = () => {

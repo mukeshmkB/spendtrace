@@ -25,7 +25,7 @@ const Login = props => {
 
   const validateSucess = () => {
     const jwtToken = 'jwt_token_021'
-    Cookies.set('jwt_token', jwtToken)
+    Cookies.set('jwtToken', jwtToken)
 
     const {history} = props
     history.replace('/')
@@ -54,7 +54,7 @@ const Login = props => {
     validateSucess()
   }
 
-  const accessToken = Cookies.get('jwt_token')
+  const accessToken = Cookies.get('jwtToken')
 
   if (accessToken !== undefined) {
     return <Redirect to="/" />
